@@ -1,0 +1,21 @@
+{
+  "name": "goatbot-ig-group-manager",
+  "version": "1.0.0",
+  "description": "Pending group invitation manager for GoatBot Instagram Adapter (adapter-method bridge)",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "goatbot",
+    "instagram",
+    "bot",
+    "group-invitations",
+    "npm"
+  ],
+  "license": "MIT"
+}
