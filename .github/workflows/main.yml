@@ -20,48 +20,28 @@ jobs:
   test:
     name: Test Package
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '24'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests
-        run: npm test
+      - run: npm install
+      - run: npm test
 
   publish:
     name: Publish to npm
     needs: test
     if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js and npm Registry
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
           package-manager-cache: false
-
-      - name: Update npm
-        run: npm install -g npm@latest
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests
-        run: npm test
-
-      - name: Publish Package
-        run: npm publish --access public
-        
+      - run: npm install -g npm@latest
+      - run: npm install
+      - run: npm test
+      - run: npm publish --access public
+      
